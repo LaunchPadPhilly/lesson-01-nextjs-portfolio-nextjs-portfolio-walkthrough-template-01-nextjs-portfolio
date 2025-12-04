@@ -2,34 +2,61 @@ import Link from 'next/link'
 
 export default function Contact() {
   return (
-    <div className="px-6 py-12">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="section-heading text-center mb-16">Get In Touch</h1>
-        <div className="card-surface p-10 md:p-12">
-          <p className="text-base md:text-lg text-slate-300 mb-10 text-center leading-relaxed">I'm always open to discussing new opportunities, collaborations, or just connecting. Reach out through any of the channels below.</p>
-          <div className="space-y-8 max-w-2xl mx-auto">
-            <div className="flex items-center gap-6 p-6 rounded-lg bg-slate-800/30 hover:bg-slate-800/50 transition-colors border border-slate-700/50 hover:border-slate-600 group">
-              <div className="text-4xl group-hover:scale-110 transition-transform">📧</div>
-              <div className="flex-1">
-                <p className="text-sm font-bold text-blue-400 mb-1">Email</p>
-                <p className="text-base text-slate-300">jmiester765@gmail.com</p>
+    <div className="contact-page">
+      <div className="contact-title">
+        <h1>Get In Touch</h1>
+        <p>Reach out through any of these channels</p>
+      </div>
+
+      <div className="contact-divider"></div>
+
+      <div className="contact-wrapper">
+        <div className="contact-card">
+          <p className="contact-text">
+            I'd love to hear from you! Feel free to reach out through any of these channels.
+          </p>
+
+          <div className="contact-list">
+            <div className="contact-row">
+              <span className="contact-icon">📧</span>
+              <div className="contact-detail">
+                <p className="contact-label">Email</p>
+                <p className="contact-subtext">syrianag311@gmail.com</p>
               </div>
             </div>
-            <div className="flex items-center gap-6 p-6 rounded-lg bg-slate-800/30 hover:bg-slate-800/50 transition-colors border border-slate-700/50 hover:border-slate-600 group">
-              <div className="text-4xl group-hover:scale-110 transition-transform">🔗</div>
-              <div className="flex-1">
-                <p className="text-sm font-bold text-blue-400 mb-1">LinkedIn</p>
-                <Link href="https://www.linkedin.com/in/jaylen-marshall-016325374/" className="text-base text-slate-300 hover:text-blue-400 font-medium transition">Jaylen Marshall</Link>
+
+            <div className="contact-row">
+              <span className="contact-icon">🔗</span>
+              <div className="contact-detail">
+                <p className="contact-label">LinkedIn</p>
+                <Link href="https://www.linkedin.com/in/syriana-gil-7717b331b" target="_blank" rel="noopener noreferrer" className="contact-link">
+                  linkedin.com/in/syriana-gil-7717b331b
+                </Link>
+                <p className="contact-subtext">Professional networking and updates</p>
               </div>
             </div>
-            <div className="flex items-center gap-6 p-6 rounded-lg bg-slate-800/30 hover:bg-slate-800/50 transition-colors border border-slate-700/50 hover:border-slate-600 group">
-              <div className="text-4xl group-hover:scale-110 transition-transform">💻</div>
-              <div className="flex-1">
-                <p className="text-sm font-bold text-blue-400 mb-1">GitHub</p>
-                <Link href="https://github.com/JMiester5M" className="text-base text-slate-300 hover:text-blue-400 font-medium transition">JMiester5M</Link>
+
+            <div className="contact-row">
+              <span className="contact-icon">💻</span>
+              <div className="contact-detail">
+                <p className="contact-label">GitHub</p>
+                <Link href="https://github.com/syrianag" target="_blank" rel="noopener noreferrer" className="contact-link">
+                  github.com/syrianag
+                </Link>
+                <p className="contact-subtext">Follow along on GitHub</p>
               </div>
             </div>
           </div>
+        </div>
+
+        <div className="enhance-panel">
+          <h3 className="enhance-title">💡 Optional Enhancements:</h3>
+          <ul className="enhance-list">
+            <li>Add a contact form (coming in Week 4)</li>
+            <li>Include your location or timezone</li>
+            <li>Add social media icons</li>
+            <li>List your availability for projects</li>
+          </ul>
         </div>
       </div>
     </div>

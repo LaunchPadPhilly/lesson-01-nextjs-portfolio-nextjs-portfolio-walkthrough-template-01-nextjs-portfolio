@@ -1,34 +1,44 @@
+"use client"
 import Link from 'next/link'
-
-const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/contact', label: 'Contact' },
-]
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
-  return (
-    <nav className="sticky top-0 z-50 backdrop-blur bg-slate-900/70 border-b border-slate-700/60">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/" className="text-lg font-semibold gradient-text">
-            Jaylen Marshall
-          </Link>
-          <div className="flex items-center gap-8">
-            {navItems.map(item => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-slate-400 hover:text-white transition relative group"
-              >
-                <span>{item.label}</span>
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all" />
-              </Link>
-            ))}
-          </div>
-        </div>
-      </div>
-    </nav>
-  )
+	const pathname = usePathname()
+
+	const links = [
+		{ href: '/', label: 'Home' },
+			{ href: '/about', label: 'About' },
+		{ href: '/projects', label: 'Projects' },
+		{ href: '/contact', label: 'Contact' },
+	]
+
+	return (
+				<nav className="fixed top-0 inset-x-0 z-50 backdrop-blur bg-black/70 border-b border-gray-800">
+				<div className="mx-auto max-w-6xl px-6">
+						<div className="flex h-16 items-center justify-center">
+							<ul className="flex items-center gap-6 list-none">
+						{links.map(link => {
+							const active = pathname === link.href
+							return (
+								<li key={link.href}>
+									<Link
+										href={link.href}
+												className={
+													`inline-block px-4 py-2 rounded-md text-sm font-bold whitespace-nowrap transition no-underline ` +
+													(active
+														? 'text-purple-400 bg-purple-900/30 hover:bg-purple-800/40 hover:text-white'
+														: 'text-purple-500 hover:text-white hover:bg-purple-600/20')
+												}
+										aria-current={active ? 'page' : undefined}
+									>
+										{link.label}
+									</Link>
+								</li>
+							)
+						})}
+					</ul>
+				</div>
+			</div>
+		</nav>
+	)
 }

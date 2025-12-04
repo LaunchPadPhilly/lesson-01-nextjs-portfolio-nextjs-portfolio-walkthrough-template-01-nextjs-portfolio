@@ -1,28 +1,45 @@
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
+  const title = "Welcome To Syriana's Portfolio"
+
   return (
-    <div className="px-6 py-12">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <h1 className="section-heading mb-6">Hi, I'm Jaylen Marshall</h1>
-          <p className="text-lg md:text-xl leading-relaxed text-slate-300 max-w-3xl mx-auto">
-            Front-End Engineer focused on crafting responsive, accessible, and performant web experiences using React, Next.js, and modern tooling.
-          </p>
+    <div className="min-h-screen px-6 py-16">
+      <section className="cy-hero">
+        <div className="max-w-5xl mx-auto">
+        <h1 className="cy-title" data-text={title}>{title}</h1>
+        <p className="cy-tagline mt-2">Building beautiful, performant web applications</p>
+        <div className="mt-10 flex flex-col sm:flex-row gap-5 justify-center">
+          <Link href="/projects" className="cy-link-btn">View My Work!</Link>
+          <Link href="/about" className="cy-link-btn">Learn About Me!</Link>
+          <Link href="/contact" className="cy-link-btn">Contact Me!</Link>
         </div>
-        
-        <div className="grid gap-6 md:grid-cols-2 mb-16">
-          <div className="card-surface p-8">
-            <div className="text-4xl mb-4">🎯</div>
-            <h2 className="text-2xl font-bold mb-4 text-white">Core Focus</h2>
-            <p className="text-base text-slate-300 leading-relaxed">Building clean UI components, refining developer workflows, and shipping user-centered features with scalability in mind.</p>
-          </div>
-          <div className="card-surface p-8">
-            <div className="text-4xl mb-4">🚀</div>
-            <h2 className="text-2xl font-bold mb-4 text-white">Current Goals</h2>
-            <p className="text-base text-slate-300 leading-relaxed">Growing deeper expertise in frontend architecture, testing strategies, and design systems while collaborating on real-world products.</p>
-          </div>
         </div>
+      </section>
+
+      <div className="cy-divider" />
+
+      {/* Profile Photo Section */}
+      <section className="home-photo-section">
+        <div className="profile-photo-container">
+          <Image
+            src="/profile-placeholder.png"
+            alt="Syriana profile photo"
+            width={300}
+            height={300}
+            className="profile-photo-image"
+            priority
+          />
+          <p className="profile-photo-hint">Add a real profile photo named <code>profile-placeholder.png</code> in <code>public/</code>.</p>
+        </div>
+      </section>
+
+      <div className="cy-divider" />
+
+      <div className="text-center mt-10">
+        <Link href="#next" aria-label="Scroll down" className="text-3xl text-purple-400 hover:text-purple-300 animate-bounce">↓</Link>
+        <div id="next" className="sr-only">Next section anchor</div>
       </div>
     </div>
   )
